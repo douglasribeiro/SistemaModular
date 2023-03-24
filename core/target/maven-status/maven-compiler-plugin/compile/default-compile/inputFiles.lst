@@ -1,3 +1,4 @@
+C:\imobiliaria\system\core\src\main\java\douglas\develop\service\GenericService.java
 C:\imobiliaria\system\core\src\main\java\douglas\develop\core\repository\ProprietarioRepository.java
 C:\imobiliaria\system\core\src\main\java\douglas\develop\core\repository\EnderecoRepository.java
 C:\imobiliaria\system\core\src\main\java\douglas\develop\core\model\Curso.java
@@ -8,11 +9,13 @@ C:\imobiliaria\system\core\src\main\java\douglas\develop\core\enums\SimNao.java
 C:\imobiliaria\system\core\src\main\java\douglas\develop\Main.java
 C:\imobiliaria\system\core\src\main\java\douglas\develop\core\model\Referencia.java
 C:\imobiliaria\system\core\src\main\java\douglas\develop\core\repository\InquilinoRepository.java
+C:\imobiliaria\system\core\src\main\java\douglas\develop\core\dto\CursoDTO.java
 C:\imobiliaria\system\core\src\main\java\douglas\develop\core\repository\TelefoneRepository.java
 C:\imobiliaria\system\core\src\main\java\douglas\develop\core\repository\ApplicationUserRepository.java
 C:\imobiliaria\system\core\src\main\java\douglas\develop\core\enums\TipoImovel.java
 C:\imobiliaria\system\core\src\main\java\douglas\develop\core\model\SystemLog.java
 C:\imobiliaria\system\core\src\main\java\douglas\develop\docs\BaseSwaggerConfig.java
+C:\imobiliaria\system\core\src\main\java\douglas\develop\core\dto\ProprietarioDTO.java
 C:\imobiliaria\system\core\src\main\java\douglas\develop\core\repository\ReferenciaRepository.java
 C:\imobiliaria\system\core\src\main\java\douglas\develop\core\enums\TipoServico.java
 C:\imobiliaria\system\core\src\main\java\douglas\develop\utils\Utils.java
@@ -33,3 +36,4 @@ C:\imobiliaria\system\core\src\main\java\douglas\develop\core\enums\EstCivil.jav
 C:\imobiliaria\system\core\src\main\java\douglas\develop\core\enums\TipoEndereco.java
 C:\imobiliaria\system\core\src\main\java\douglas\develop\core\property\JwtConfiguration.java
 C:\imobiliaria\system\core\src\main\java\douglas\develop\core\repository\ImovelRepository.java
+C:\imobiliaria\system\core\src\main\java\douglas\develop\core\dto\ProprietarioUpdateDTO.java

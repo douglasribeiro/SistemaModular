@@ -1,19 +1,32 @@
 package douglas.develop.core.model;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import douglas.develop.core.enums.TipoTelefone;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Telefone implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @NotNull(message = "cliente nao informado.")
+    private Integer client;
 
     @Column(length = 2)
     private String ddd;
@@ -21,81 +34,16 @@ public class Telefone implements Serializable {
     @Column(length = 10)
     private String numero;
 
-    @JsonIgnore
+    private Integer tipo;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToOne
     @JoinColumn(name="inquilino_id")
     private Inquilino inquilino;
 
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToOne
     @JoinColumn(name="proprietario_id")
     private Proprietario proprietario;
-
-    private Integer tipo;
-
-    public Telefone() {
-        super();
-    }
-
-    public Telefone(Integer id, String ddd, String numero, TipoTelefone tipo,
-                    Inquilino inquilino, Proprietario proprietario) {
-        super();
-        this.id = id;
-        this.ddd = ddd;
-        this.numero = numero;
-        this.tipo = (tipo==null) ? null : tipo.getCodigo();
-        this.inquilino = inquilino;
-        this.proprietario = proprietario;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getDdd() {
-        return ddd;
-    }
-
-    public void setDdd(String ddd) {
-        this.ddd = ddd;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    public Inquilino getInquilino() {
-        return inquilino;
-    }
-
-    public void setInquilino(Inquilino inquilino) {
-        this.inquilino = inquilino;
-    }
-
-    public Proprietario getProprietario() {
-        return proprietario;
-    }
-
-    public void setProprietario(Proprietario proprietario) {
-        this.proprietario = proprietario;
-    }
-
-    public TipoTelefone getTipo() {
-        return TipoTelefone.toEnum(tipo);
-    }
-
-    public void setTipo(TipoTelefone tipo) {
-        this.tipo = tipo.getCodigo();
-    }
-
-
 
 }

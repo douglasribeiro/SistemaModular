@@ -22,6 +22,19 @@ public class Utils {
         return userId;
     }
 
+    public static Integer clientUser() throws JSONException {
+        String client = (String) SecurityContextHolder.getContext().getAuthentication().getDetails();
+        String[] parts = client.split("\\.");
+        JSONObject payload = null;
+        try {
+            payload = new JSONObject(decode(parts[1]));
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        Integer clientId = payload.getInt("client");
+        return clientId;
+    }
+
     private static String decode(String encodedString) {
         return new String(Base64.getUrlDecoder().decode(encodedString));
     }

@@ -6,7 +6,9 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8081/eureka/
-  register-with-eureka: true
+    register-with-eureka: true
+    fetch-registry: true
+
 spring:
   application:
     name: curso
@@ -16,13 +18,13 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
+      dialect: org.hibernate.dialect.PostgreSQLDialect
   jmx:
     enabled: false
   datasource:
-    url: jdbc:mysql://localhost:3306/piloto?allowPublicKeyRetrieval=true&sslMode=DISABLED
-    username: root
-    password: root
+    url: jdbc:postgresql://192.168.15.155:5432/piloto?allowPublicKeyRetrieval=true&sslMode=DISABLED
+    username: postgres
+    password: postgres
 
 jwt:
   config:

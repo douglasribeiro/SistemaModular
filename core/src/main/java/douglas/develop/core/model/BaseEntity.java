@@ -4,6 +4,7 @@ package douglas.develop.core.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
@@ -17,6 +18,8 @@ public abstract class BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     protected Long id;
+    @NotNull
+    private Integer client;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date includeDate;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")

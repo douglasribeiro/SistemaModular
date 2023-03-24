@@ -4,7 +4,6 @@ import douglas.develop.core.model.SystemLog;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.http.HttpEntity;
@@ -16,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
 
+import static douglas.develop.utils.Utils.clientUser;
 import static douglas.develop.utils.Utils.nomeUser;
 
 @Slf4j
@@ -28,6 +28,7 @@ public class CursoAspect {
     public void lista() throws JSONException {
         log.info("AOP Lista.............");
         log.info("Username "+ nomeUser());
+        log.info("ClientUser "+ clientUser());
         Calendar brDate = Calendar.getInstance(TimeZone.getTimeZone("America/Sao_Paulo"),new Locale("pr", "BR"));
         SystemLog systemLog = new SystemLog(null, nomeUser(), brDate.getTime(), "Listagem todos os registros de curso");
         log.info("Username "+ systemLog);

@@ -29,11 +29,16 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(jwtConfiguration.getLoginUrl(), "/**/swagger-ui.html").permitAll()
                 .antMatchers(HttpMethod.GET, "/**/swagger-resources/**", "/**/webjars/springfox-swagger-ui/**", "/**/v2/api-docs/**").permitAll()
-               // .antMatchers("/auth/user/**").hasAnyRole("ADMIN", "USER")
-               // .antMatchers("/proprietario/v1/**").hasAnyRole("ADMIN", "USER")
-               // .antMatchers(HttpMethod.POST,"/proprietario/v1/**").hasRole("ADMIN")
-               // .antMatchers("/curso/v1/**").hasRole("ADMIN")
-               // .anyRequest().authenticated()
+                .antMatchers("/auth/user/**").hasAnyRole("ADMIN", "USER")
+                .antMatchers(HttpMethod.GET,"/usuario/v1/**").hasRole("DIRECTOR")
+                .antMatchers(HttpMethod.POST,"/usuario/v1/**").hasRole("DIRECTOR")
+                .antMatchers(HttpMethod.GET, "/curso/v1/**").hasAnyRole("ADMIN", "USER")
+                .antMatchers(HttpMethod.POST,"/curso/v1/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET,"/proprietario/v1/**").hasAnyRole("ADMIN", "USER")
+                .antMatchers(HttpMethod.POST,"/proprietario/v1/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/telefone/v1/**").hasAnyRole("ADMIN", "USER")
+                .antMatchers(HttpMethod.POST, "/telefone/v1/**").hasAnyRole("ADMIN")
+                .anyRequest().authenticated()
         ;
     }
 

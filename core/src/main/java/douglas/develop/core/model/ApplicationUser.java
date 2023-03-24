@@ -3,8 +3,6 @@ package douglas.develop.core.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
-import net.minidev.json.annotate.JsonIgnore;
-import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -24,23 +22,30 @@ public class ApplicationUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private Long id;
-    @NonNull()
+
+    @NotNull
     @Column(nullable = false)
     private String username;
 
+    @NotNull
     @Column(nullable = false)
     @ToString.Exclude
     private String password;
 
-    @NonNull()
+    @NotNull()
     @Column(nullable = false)
     @Builder.Default
     private String role = "USER";
+
+    @NotNull
+    @Column(nullable = false)
+    private Integer client;
 
     public ApplicationUser(@NotNull ApplicationUser applicationUser) {
         this.id = applicationUser.getId();
         this.username = applicationUser.getUsername();
         this.password = applicationUser.getPassword();
         this.role = applicationUser.getRole();
+        this.client = applicationUser.getClient();
     }
 }

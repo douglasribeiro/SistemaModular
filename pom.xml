@@ -19,6 +19,9 @@
         <module>core</module>
         <module>token</module>
         <module>exception</module>
+        <module>usuario</module>
+        <module>telefone</module>
+        <module>referencia</module>
     </modules>
     <properties>
         <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
@@ -118,6 +121,13 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.6.0</version>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>

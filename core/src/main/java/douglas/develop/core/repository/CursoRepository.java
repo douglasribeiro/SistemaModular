@@ -1,7 +1,14 @@
 package douglas.develop.core.repository;
 
 import douglas.develop.core.model.Curso;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CursoRepository extends PagingAndSortingRepository<Curso, Long> {
+import java.util.List;
+import java.util.Optional;
+
+public interface CursoRepository extends JpaRepository<Curso, Long> {
+
+    List<Curso> findByClient(Integer client);
+
+    Optional<Curso> findByIdAndClient(Long id, Integer client);
 }

@@ -9,24 +9,22 @@ eureka:
       defaultZone: http://localhost:8081/eureka/
     register-with-eureka: true
 
-
 spring:
   application:
     name: auth
   jpa:
-    show-sql: false
+    show-sql: true
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
+      dialect: org.hibernate.dialect.PostgreSQLDialect
   jmx:
     enabled: false
   datasource:
-    url: jdbc:mysql://localhost:3306/piloto?allowPublicKeyRetrieval=true&sslMode=DISABLED
-    username: root
-    password: root
-
+    url: jdbc:postgresql://192.168.15.155:5432/piloto?allowPublicKeyRetrieval=true&sslMode=DISABLED
+    username: postgres
+    password: postgres
 jwt:
   config:
     type: signed

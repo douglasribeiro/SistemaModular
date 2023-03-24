@@ -1,0 +1,31 @@
+server:
+  port: 8092
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+spring:
+  application:
+    name: usuario
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+  jmx:
+    enabled: false
+  datasource:
+    url: jdbc:postgresql://192.168.15.155:5432/piloto?allowPublicKeyRetrieval=true&sslMode=DISABLED
+    username: postgres
+    password: postgres
+
+jwt:
+  config:
+    type: signed
